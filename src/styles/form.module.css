@@ -1,0 +1,44 @@
+.form {
+	display: flex;
+	flex-direction: column;
+}
+
+.form-group {
+	position: relative;
+	margin-bottom: 4rem;
+}
+
+.form input {
+	all: unset;
+}
+
+.form input[type='text'] {
+	width: 100%;
+	border: 0;
+	border-bottom: 2px solid #fdcab7;
+	outline: 0;
+	font-size: 1.3rem;
+	transition: border-bottom 0.2s;
+}
+
+.form input[type='text']:focus {
+	border-bottom: 2px solid #ff9770;
+}
+
+.form-label {
+	position: absolute;
+	top: 0;
+	display: block;
+
+	font-size: 1.3rem;
+
+	cursor: text;
+
+	transition: all 0.2s;
+}
+
+.form input[type='text']:focus ~ .form-label {
+	top: -1.5rem;
+
+	cursor: auto;
+}
