@@ -2,20 +2,12 @@ import { Field } from 'react-final-form';
 
 import styles from '../../styles/dropdown.module.css';
 
-const Dropdown = ({
-	name,
-	component,
-	values,
-}: {
-	name: any;
-	component: any;
-	values: any;
-}) => {
+const Dropdown = ({ onDish }: { onDish: (arg0: string) => void }) => {
 	return (
-		<Field name={name} component={component}>
-			{values.map((value: any) => (
-				<option value={value} key={value}>
-					{value}
+		<Field name="type" component="select">
+			{['pizza', 'soup', 'sandwich'].map((dish) => (
+				<option value={dish} key={dish} onClick={() => onDish(dish)}>
+					{dish}
 				</option>
 			))}
 		</Field>
