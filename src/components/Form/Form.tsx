@@ -1,8 +1,8 @@
 import { useState } from 'react';
 
-import { Form, Field } from 'react-final-form';
+import { Form } from 'react-final-form';
 
-import Input from '../Input/Input';
+import TextInput from '../TextInput/TextInput';
 import RadioGroup from '../RadioGroup/RadioGroup';
 
 import { inputs } from '../../data/inputs';
@@ -28,7 +28,7 @@ const FormComp = () => {
 					{inputs
 						.filter((condition) => !condition.dish)
 						.map((input) => (
-							<Input {...input} key={input.id} />
+							<TextInput {...input} key={input.id} />
 						))}
 
 					<h2>2. Pick a type of dish:</h2>
@@ -40,19 +40,21 @@ const FormComp = () => {
 					{inputs
 						.filter((condition) => currentDish === condition.dish)
 						.map((input) => (
-							<Input {...input} key={input.id} />
+							<TextInput {...input} key={input.id} />
 						))}
 
-					<button type="submit" className={styles['form__button']}>
-						Submit
-					</button>
-					<button
-						type="button"
-						className={styles['form__button']}
-						onClick={form.reset}
-					>
-						Reset
-					</button>
+					<div className={styles['buttons-container']}>
+						<button type="submit" className={styles['form__button']}>
+							Submit
+						</button>
+						<button
+							type="button"
+							className={styles['form__button']}
+							onClick={form.reset}
+						>
+							Reset
+						</button>
+					</div>
 				</form>
 			)}
 		/>

@@ -3,47 +3,12 @@
 	flex-direction: column;
 }
 
-.form-group {
-	position: relative;
-	margin-bottom: 4rem;
+.buttons-container {
+	align-self: center;
 }
 
-.form input[type='text'] {
-	all: unset;
-}
-
-.form input[type='text'],
-.form input[type='number'] {
-	width: 100%;
-	border: 0;
-	border-bottom: 2px solid #fdcab7;
-	outline: 0;
-	font-size: 1.3rem;
-	transition: border-bottom 0.2s;
-}
-
-.form input[type='text']:focus,
-.form input[type='number']:focus {
-	border-bottom: 2px solid #ff9770;
-}
-
-.form-label {
-	position: absolute;
-	top: 0;
-	display: block;
-
-	font-size: 1.3rem;
-
-	cursor: text;
-
-	transition: all 0.2s;
-}
-
-.form input[type='text']:focus ~ .form-label,
-.form input[type='number']:focus ~ .form-label {
-	top: -1.5rem;
-
-	cursor: auto;
+.buttons-container > *:not(:last-child) {
+	margin-right: 1rem;
 }
 
 .form__button {
@@ -68,14 +33,4 @@
 .form__button:hover,
 .form__button:focus {
 	background-color: #ff9770;
-}
-
-.error-span {
-	position: absolute;
-	top: 2.3rem;
-	right: 0;
-
-	font-size: 1.3rem;
-	font-weight: bold;
-	color: red;
 }
