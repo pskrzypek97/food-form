@@ -48,7 +48,7 @@ const FormComp = () => {
 						</button>
 						<button
 							type="button"
-							className={styles['form__button']}
+							className={styles['form__button--reset']}
 							onClick={form.reset}
 						>
 							Reset

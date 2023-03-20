@@ -7,13 +7,7 @@
 	align-self: center;
 }
 
-.buttons-container > *:not(:last-child) {
-	margin-right: 1rem;
-}
-
-.form__button {
-	align-self: center;
-
+.buttons-container button {
 	padding-block: 1rem;
 	padding-inline: 2rem;
 
@@ -22,15 +16,31 @@
 	border: none;
 	border-radius: 2rem;
 
-	background-color: #fdcab7;
-	color: white;
-
 	cursor: pointer;
 
 	transition: all 0.2s;
 }
 
+.buttons-container > *:not(:last-child) {
+	margin-right: 1rem;
+}
+
+.form__button {
+	background-color: #fdcab7;
+	color: white;
+}
+
 .form__button:hover,
 .form__button:focus {
 	background-color: #ff9770;
+}
+
+.form__button--reset {
+	background-color: #e6e5e0;
+	color: white;
+}
+
+.form__button--reset:hover,
+.form__button--reset:focus {
+	background-color: hsl(193, 10%, 80%);
 }
