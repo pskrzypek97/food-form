@@ -23,7 +23,7 @@ const FormComp = () => {
 			onSubmit={onSubmit}
 			destroyOnUnregister
 			render={({ handleSubmit, form }) => (
-				<form action="#" className={styles.form} onSubmit={handleSubmit}>
+				<form action="#" className={styles['form']} onSubmit={handleSubmit}>
 					<h2>1. Choose a name and preparation time of your dish:</h2>
 					{inputs
 						.filter((condition) => !condition.dish)
@@ -31,11 +31,11 @@ const FormComp = () => {
 							<TextInput {...input} key={input.id} />
 						))}
 
-					<h2>2. Pick a type of dish:</h2>
+					<h2>2. Pick a type of dish...</h2>
 
 					<RadioGroup onDish={handleDish} />
 
-					<h2>3. Customize it:</h2>
+					{currentDish !== '' && <h2>3. ... and customize it</h2>}
 					{inputs
 						.filter((condition) => currentDish === condition.dish)
 						.map((input) => (

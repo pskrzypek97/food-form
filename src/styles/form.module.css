@@ -8,6 +8,7 @@
 }
 
 .buttons-container button {
+	margin-top: 2rem;
 	padding-block: 1rem;
 	padding-inline: 2rem;
 
@@ -42,5 +43,5 @@
 
 .form__button--reset:hover,
 .form__button--reset:focus {
-	background-color: hsl(193, 10%, 80%);
+	background-color: #c7cfd1;
 }
