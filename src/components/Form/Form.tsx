@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { Form, Field } from 'react-final-form';
 
 import Input from '../Input/Input';
-import Dropdown from '../Dropdown/Dropdown';
+import RadioGroup from '../RadioGroup/RadioGroup';
 
 import styles from '../../styles/form.module.css';
 
@@ -29,20 +29,23 @@ const inputs = [
 ];
 
 const FormComp = () => {
-	const [currentDish, setCurrentDish] = useState('');
+	const [currentDish, setCurrentDish] = useState('pizza');
 
 	const handleDish = (dish: string) => setCurrentDish(dish);
 
 	return (
 		<Form
 			onSubmit={onSubmit}
+			initialValues={{ type: 'pizza' }}
+			destroyOnUnregister
 			render={({ handleSubmit, form }) => (
 				<form action="#" className={styles.form} onSubmit={handleSubmit}>
 					{inputs.map((input) => (
 						<Input {...input} key={input.id} />
 					))}
+
 					<div className={styles['form-group']}>
-						<Dropdown onDish={handleDish} />
+						<RadioGroup onDish={handleDish} />
 					</div>
 
 					{currentDish === 'pizza' && (
@@ -92,6 +95,13 @@ const FormComp = () => {
 
 					<button type="submit" className={styles['form__button']}>
 						Submit
+					</button>
+					<button
+						type="button"
+						className={styles['form__button']}
+						onClick={form.reset}
+					>
+						Reset
 					</button>
 				</form>
 			)}

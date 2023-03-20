@@ -8,12 +8,23 @@ const Input = (props: any) => {
 	return (
 		<div className={styles['form-group']}>
 			<Field
-				type={props.type}
-				id={props.id}
 				name={props.name}
-				component={props.component}
-				placeholder={props.placeholder}
-			/>
+				validate={(value) => (value ? undefined : 'Required')}
+			>
+				{({ input, meta }) => (
+					<>
+						<input
+							{...input}
+							type={props.type}
+							placeholder={props.placeholder}
+							id={props.id}
+						/>
+						{meta.error && meta.touched && (
+							<span className={styles['error-span']}>{meta.error}</span>
+						)}
+					</>
+				)}
+			</Field>
 		</div>
 	);
 };
