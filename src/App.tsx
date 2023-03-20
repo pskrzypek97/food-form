@@ -1,4 +1,4 @@
-import Form from './components/Form/Form';
+import FormComp from './components/Form/Form';
 
 const App = () => {
 	return (
@@ -7,7 +7,7 @@ const App = () => {
 				<h1 className="heading-1">Food Form</h1>
 			</div>
 			<div className="form-wrapper">
-				<Form />
+				<FormComp />
 			</div>
 		</section>
 	);

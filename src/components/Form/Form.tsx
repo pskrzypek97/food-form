@@ -1,54 +1,62 @@
-import Dropdown from '../Dropdown/Dropdown';
+import { useState } from 'react';
+
+import { Form, Field } from 'react-final-form';
+
+import Input from '../Input/Input';
+import RadioGroup from '../RadioGroup/RadioGroup';
+
+import { inputs } from '../../data/inputs';
 
 import styles from '../../styles/form.module.css';
 
-const Form = () => {
+const onSubmit = async (values: any) => {
+	console.log(values);
+};
+
+const FormComp = () => {
+	const [currentDish, setCurrentDish] = useState('');
+
+	const handleDish = (dish: string) => setCurrentDish(dish);
+
 	return (
-		<form action="#" className={styles.form}>
-			<div className={styles['form-group']}>
-				<input
-					type="text"
-					id="name"
-					name="name"
-					className={styles['input-error']}
-				/>
-				<label htmlFor="name" className={styles['form-label']}>
-					Name
-				</label>
-				<span className={styles['error-span']}>
-					djioaidaidjiajdiajdpajdpajdjadjpa
-				</span>
-			</div>
-			<div className={styles['form-group']}>
-				<input type="text" id="preparation-time" name="preparation-time" />
-				<label htmlFor="preparation-time" className={styles['form-label']}>
-					Preparation Time
-				</label>
-			</div>
+		<Form
+			onSubmit={onSubmit}
+			destroyOnUnregister
+			render={({ handleSubmit, form }) => (
+				<form action="#" className={styles.form} onSubmit={handleSubmit}>
+					<h2>1. Choose a name and preparation time of your dish:</h2>
+					{inputs
+						.filter((condition) => !condition.dish)
+						.map((input) => (
+							<Input {...input} key={input.id} />
+						))}
 
-			<div className={styles['form-group']}>
-				<Dropdown />
-			</div>
+					<h2>2. Pick a type of dish:</h2>
+					<div className={styles['form-group']}>
+						<RadioGroup onDish={handleDish} />
+					</div>
 
-			<div className={styles['form-group']}>
-				<input type="number" id="no_of_slices" name="no_of_slices" />
-				<label htmlFor="no_of_slices" className={styles['form-label']}>
-					Number of slices
-				</label>
-			</div>
+					<h2>3. Customize it:</h2>
+					{inputs
+						.filter((condition) => currentDish === condition.dish)
+						.map((input) => (
+							<Input {...input} key={input.id} />
+						))}
 
-			<div className={styles['form-group']}>
-				<input type="number" id="diameter" name="diameter" />
-				<label htmlFor="diameter" className={styles['form-label']}>
-					Diameter
-				</label>
-			</div>
-
-			<button type="submit" className={styles['form__button']}>
-				Submit
-			</button>
-		</form>
+					<button type="submit" className={styles['form__button']}>
+						Submit
+					</button>
+					<button
+						type="button"
+						className={styles['form__button']}
+						onClick={form.reset}
+					>
+						Reset
+					</button>
+				</form>
+			)}
+		/>
 	);
 };
 
-export default Form;
+export default FormComp;
