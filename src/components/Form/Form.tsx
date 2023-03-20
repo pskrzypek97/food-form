@@ -32,9 +32,8 @@ const FormComp = () => {
 						))}
 
 					<h2>2. Pick a type of dish:</h2>
-					<div className={styles['form-group']}>
-						<RadioGroup onDish={handleDish} />
-					</div>
+
+					<RadioGroup onDish={handleDish} />
 
 					<h2>3. Customize it:</h2>
 					{inputs
