@@ -1,21 +1,16 @@
 import { Field } from 'react-final-form';
 
-// import Dropdown from '../Dropdown/Dropdown';
-
 import styles from '../../styles/form.module.css';
 
 const Input = (props: any) => {
 	return (
 		<div className={styles['form-group']}>
-			<Field
-				name={props.name}
-				validate={(value) => (value ? undefined : 'Required')}
-			>
+			<Field name={props.name} validate={props.validate}>
 				{({ input, meta }) => (
 					<>
 						<input
 							{...input}
-							type={props.type}
+							type="text"
 							placeholder={props.placeholder}
 							id={props.id}
 						/>

@@ -29,6 +29,7 @@ const RadioGroup = ({ onDish }: { onDish: (arg0: string) => void }) => {
 						value={radio.id}
 						component="input"
 						onClick={() => onDish(radio.id)}
+						required
 					/>
 					<label htmlFor={radio.id}>{radio.label}</label>
 				</div>
