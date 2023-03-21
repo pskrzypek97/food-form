@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-import { Form, Field } from 'react-final-form';
+import { Form } from 'react-final-form';
 
 import Input from '../Input/Input';
 import RadioGroup from '../RadioGroup/RadioGroup';
@@ -14,19 +14,28 @@ import { Values } from '../../models/values';
 
 import styles from '../../styles/form.module.css';
 
-const FormComp = ({ onServer }: { onServer: any }) => {
+const FormComp = ({ onServer }: { onServer: (arg0: string) => void }) => {
 	const [currentDish, setCurrentDish] = useState('');
 
 	const handleDish = (dish: string) => setCurrentDish(dish);
 
 	const onSubmit = async (values: Values) => {
 		try {
-			const result = await postFormData('dsadasdas', false);
+			const requestOptions = {
+				method: 'POST',
+				headers: { 'Content-Type': 'application/json' },
+				body: JSON.stringify(values),
+			};
+
+			const result = await postFormData(
+				'https://umzzcc503l.execute-api.us-west-2.amazonaws.com/dishes/',
+				requestOptions
+			);
+
 			console.log(result);
 			onServer('Data succesfully submitted!');
 		} catch (err) {
-			console.error(err);
-			onServer('Problem has occured, please reload.');
+			onServer('Problem has occured, please reload the page.');
 		}
 	};
 

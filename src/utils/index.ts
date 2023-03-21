@@ -6,7 +6,7 @@ const timeout = (sec: number) => {
 	});
 };
 
-export const postFormData = async (url: string, options: any) => {
+export const postFormData = async (url: string, options: RequestInit) => {
 	try {
 		const res = (await Promise.race([
 			fetch(url, options),
