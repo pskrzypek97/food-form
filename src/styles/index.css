@@ -37,6 +37,13 @@ h2 {
 	color: #666666;
 }
 
+p {
+	margin-top: 2rem;
+
+	font-size: 1.5rem;
+	text-align: center;
+}
+
 .main {
 	position: relative;
 

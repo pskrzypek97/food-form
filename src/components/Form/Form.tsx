@@ -33,9 +33,9 @@ const FormComp = ({ onServer }: { onServer: (arg0: string) => void }) => {
 			);
 
 			console.log(result);
-			onServer('Data succesfully submitted!');
+			onServer('Data successfully submitted!');
 		} catch (err) {
-			onServer('Problem has occured, please reload the page.');
+			onServer('An error has occured, please reload the page.');
 		}
 	};
 
