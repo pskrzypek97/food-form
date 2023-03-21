@@ -2,22 +2,22 @@ import { Field } from 'react-final-form';
 
 import styles from '../../styles/radiogroup.module.css';
 
-const RadioGroup = ({ onDish }: { onDish: (arg0: string) => void }) => {
-	const radios = [
-		{
-			id: 'pizza',
-			label: 'Pizza',
-		},
-		{
-			id: 'soup',
-			label: 'Soup',
-		},
-		{
-			id: 'sandwich',
-			label: 'Sandwich',
-		},
-	];
+const radios = [
+	{
+		id: 'pizza',
+		label: 'Pizza',
+	},
+	{
+		id: 'soup',
+		label: 'Soup',
+	},
+	{
+		id: 'sandwich',
+		label: 'Sandwich',
+	},
+];
 
+const RadioGroup = ({ onDish }: { onDish: (arg0: string) => void }) => {
 	return (
 		<div className={styles['radio-group']}>
 			{radios.map((radio) => (
