@@ -58,7 +58,7 @@ export const inputs = [
 		dish: 'sandwich',
 		id: 'slices_of_bread',
 		name: 'slices_of_bread',
-		placeholder: 'Slices of bread',
+		placeholder: 'Number of slices of bread',
 		validate: (value: string) => {
 			if (!value) return 'Required';
 			if (isNaN(+value)) return 'Must be a number';

@@ -45,7 +45,7 @@ const FormComp = ({ onServer }: { onServer: (arg0: string) => void }) => {
 			destroyOnUnregister
 			render={({ handleSubmit, form }) => (
 				<form action="#" className={styles['form']} onSubmit={handleSubmit}>
-					<h2>1. Choose a name and preparation time of your dish:</h2>
+					<h2>1. Choose the name and preparation time of your dish:</h2>
 					{inputs
 						.filter((condition) => !condition.dish)
 						.map((input) => (
@@ -53,7 +53,6 @@ const FormComp = ({ onServer }: { onServer: (arg0: string) => void }) => {
 						))}
 
 					<h2>2. Pick a type of dish...</h2>
-
 					<RadioGroup onDish={handleDish} />
 
 					{currentDish && <h2>3. ... and customize it</h2>}

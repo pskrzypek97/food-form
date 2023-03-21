@@ -1,8 +1,8 @@
 # Food Form
 
-Food Form is a form where user can choose a name, preparation time, type of a dish picked within 3 options: pizza, soup and sandwich and customization options of each dish. All input fields are required and each of them has different validation rules.
+Food Form is a form where users can choose a name, preparation time and type of a dish picked within 3 options: pizza, soup and sandwich. The form also includes customization options of each dish. All input fields are required and each of them has different validation rules.
 
-**Link to project**
+**Link to project** https://food-form-delta.vercel.app/
 
 ![Food Form](./screenshots/screenshot.JPG)
 
@@ -11,19 +11,19 @@ Food Form is a form where user can choose a name, preparation time, type of a di
 1. Clone the repo
 
 ```sh
-   git clone https://github.com/pskrzypek97/food-form.git
+git clone https://github.com/pskrzypek97/food-form.git
 ```
 
 2. Install NPM packages
 
 ```sh
-    npm install
+npm install
 ```
 
 3. Run the development server:
 
 ```sh
-    npm start
+npm start
 ```
 
 4. Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
