@@ -13,6 +13,8 @@ export const inputs = [
 		placeholder: 'Preparation Time',
 		validate: (value: string) => {
 			if (!value) return 'Required';
+			if (!/^\d+:\d{2}:\d{2}$/gm.test(value))
+				return 'Expected format is: 00:00:00';
 		},
 	},
 	{
