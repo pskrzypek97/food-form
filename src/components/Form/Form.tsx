@@ -7,16 +7,37 @@ import RadioGroup from '../RadioGroup/RadioGroup';
 
 import { inputs } from '../../data/inputs';
 
+import { postFormData } from '../../utils';
+
+import { InputProps } from '../../models/inputProps';
+import { Values } from '../../models/values';
+
 import styles from '../../styles/form.module.css';
 
-const onSubmit = async (values: any) => {
-	console.log(values);
-};
-
-const FormComp = () => {
+const FormComp = ({ onServer }: { onServer: (arg0: string) => void }) => {
 	const [currentDish, setCurrentDish] = useState('');
 
 	const handleDish = (dish: string) => setCurrentDish(dish);
+
+	const onSubmit = async (values: Values) => {
+		try {
+			const requestOptions = {
+				method: 'POST',
+				headers: { 'Content-Type': 'application/json' },
+				body: JSON.stringify(values),
+			};
+
+			const result = await postFormData(
+				'https://umzzcc503l.execute-api.us-west-2.amazonaws.com/dishes/',
+				requestOptions
+			);
+
+			console.log(result);
+			onServer('Data succesfully submitted!');
+		} catch (err) {
+			onServer('Problem has occured, please reload the page.');
+		}
+	};
 
 	return (
 		<Form
