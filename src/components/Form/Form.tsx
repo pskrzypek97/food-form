@@ -7,16 +7,25 @@ import RadioGroup from '../RadioGroup/RadioGroup';
 
 import { inputs } from '../../data/inputs';
 
+import { postFormData } from '../../utils';
+
 import styles from '../../styles/form.module.css';
 
-const onSubmit = async (values: any) => {
-	console.log(values);
-};
-
-const FormComp = () => {
+const FormComp = ({ onServer }: { onServer: any }) => {
 	const [currentDish, setCurrentDish] = useState('');
 
 	const handleDish = (dish: string) => setCurrentDish(dish);
+
+	const onSubmit = async (values: any) => {
+		try {
+			const result = await postFormData(values, false);
+			console.log(result);
+			onServer('Data succesfully submitted!');
+		} catch (err) {
+			console.error(err);
+			onServer('Problem has occured, please reload.');
+		}
+	};
 
 	return (
 		<Form
