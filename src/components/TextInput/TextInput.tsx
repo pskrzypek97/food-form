@@ -1,10 +1,8 @@
 import { Field } from 'react-final-form';
 
-import { InputProps } from '../../models/inputProps';
+import styles from '../../styles/textinput.module.css';
 
-import styles from '../../styles/form.module.css';
-
-const Input = (props: InputProps) => {
+const TextInput = (props: any) => {
 	return (
 		<div className={styles['form-group']}>
 			<Field name={props.name} validate={props.validate}>
@@ -15,6 +13,11 @@ const Input = (props: InputProps) => {
 							type="text"
 							placeholder={props.placeholder}
 							id={props.id}
+							className={
+								meta.error && meta.touched
+									? styles['text-input--error']
+									: styles['text-input']
+							}
 						/>
 						{meta.error && meta.touched && (
 							<span className={styles['error-span']}>{meta.error}</span>
@@ -26,4 +29,4 @@ const Input = (props: InputProps) => {
 	);
 };
 
-export default Input;
+export default TextInput;

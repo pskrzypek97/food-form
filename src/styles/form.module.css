@@ -3,52 +3,12 @@
 	flex-direction: column;
 }
 
-.form-group {
-	position: relative;
-	margin-bottom: 4rem;
-}
-
-.form input[type='text'] {
-	all: unset;
-}
-
-.form input[type='text'],
-.form input[type='number'] {
-	width: 100%;
-	border: 0;
-	border-bottom: 2px solid #fdcab7;
-	outline: 0;
-	font-size: 1.3rem;
-	transition: border-bottom 0.2s;
-}
-
-.form input[type='text']:focus,
-.form input[type='number']:focus {
-	border-bottom: 2px solid #ff9770;
-}
-
-.form-label {
-	position: absolute;
-	top: 0;
-	display: block;
-
-	font-size: 1.3rem;
-
-	cursor: text;
-
-	transition: all 0.2s;
-}
-
-.form input[type='text']:focus ~ .form-label,
-.form input[type='number']:focus ~ .form-label {
-	top: -1.5rem;
-
-	cursor: auto;
-}
-
-.form__button {
+.buttons-container {
 	align-self: center;
+}
 
+.buttons-container button {
+	margin-top: 2rem;
 	padding-block: 1rem;
 	padding-inline: 2rem;
 
@@ -57,12 +17,18 @@
 	border: none;
 	border-radius: 2rem;
 
-	background-color: #fdcab7;
-	color: white;
-
 	cursor: pointer;
 
 	transition: all 0.2s;
+}
+
+.buttons-container > *:not(:last-child) {
+	margin-right: 1rem;
+}
+
+.form__button {
+	background-color: #fdcab7;
+	color: white;
 }
 
 .form__button:hover,
@@ -70,12 +36,12 @@
 	background-color: #ff9770;
 }
 
-.error-span {
-	position: absolute;
-	top: 2.3rem;
-	right: 0;
+.form__button--reset {
+	background-color: #e6e5e0;
+	color: white;
+}
 
-	font-size: 1.3rem;
-	font-weight: bold;
-	color: red;
+.form__button--reset:hover,
+.form__button--reset:focus {
+	background-color: #c7cfd1;
 }
