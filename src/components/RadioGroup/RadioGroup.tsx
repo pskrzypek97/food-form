@@ -19,11 +19,12 @@ const RadioGroup = ({ onDish }: { onDish: (arg0: string) => void }) => {
 	];
 
 	return (
-		<>
+		<div className={styles['radio-group']}>
 			{radios.map((radio) => (
-				<div key={radio.id}>
+				<div className={styles['radio-container']} key={radio.id}>
 					<Field
 						type="radio"
+						className={styles['radio-button']}
 						id={radio.id}
 						name="type"
 						value={radio.id}
@@ -31,10 +32,12 @@ const RadioGroup = ({ onDish }: { onDish: (arg0: string) => void }) => {
 						onClick={() => onDish(radio.id)}
 						required
 					/>
-					<label htmlFor={radio.id}>{radio.label}</label>
+					<label htmlFor={radio.id} className={styles['radio-label']}>
+						{radio.label}
+					</label>
 				</div>
 			))}
-		</>
+		</div>
 	);
 };
 
