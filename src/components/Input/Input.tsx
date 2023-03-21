@@ -1,8 +1,10 @@
 import { Field } from 'react-final-form';
 
+import { InputProps } from '../../models/inputProps';
+
 import styles from '../../styles/form.module.css';
 
-const Input = (props: any) => {
+const Input = (props: InputProps) => {
 	return (
 		<div className={styles['form-group']}>
 			<Field name={props.name} validate={props.validate}>

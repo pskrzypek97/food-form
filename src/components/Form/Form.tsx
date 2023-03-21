@@ -9,6 +9,9 @@ import { inputs } from '../../data/inputs';
 
 import { postFormData } from '../../utils';
 
+import { InputProps } from '../../models/inputProps';
+import { Values } from '../../models/values';
+
 import styles from '../../styles/form.module.css';
 
 const FormComp = ({ onServer }: { onServer: any }) => {
@@ -16,9 +19,9 @@ const FormComp = ({ onServer }: { onServer: any }) => {
 
 	const handleDish = (dish: string) => setCurrentDish(dish);
 
-	const onSubmit = async (values: any) => {
+	const onSubmit = async (values: Values) => {
 		try {
-			const result = await postFormData(values, false);
+			const result = await postFormData('dsadasdas', false);
 			console.log(result);
 			onServer('Data succesfully submitted!');
 		} catch (err) {
@@ -36,7 +39,7 @@ const FormComp = ({ onServer }: { onServer: any }) => {
 					<h2>1. Choose a name and preparation time of your dish:</h2>
 					{inputs
 						.filter((condition) => !condition.dish)
-						.map((input) => (
+						.map((input: InputProps) => (
 							<Input {...input} key={input.id} />
 						))}
 
